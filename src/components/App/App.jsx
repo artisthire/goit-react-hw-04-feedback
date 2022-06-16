@@ -7,16 +7,7 @@ import Statistics from 'components/Statistics';
 import Notification from 'components/Notification';
 
 function reducer(state, action) {
-  switch (action.type) {
-    case 'good':
-      return { ...state, good: state.good + action.payload };
-    case 'neutral':
-      return { ...state, neutral: state.neutral + action.payload };
-    case 'bad':
-      return { ...state, bad: state.bad + action.payload };
-    default:
-      throw new Error('Unexpected type');
-  }
+  return { ...state, [action.type]: state[action.type] + action.payload };
 }
 
 function App() {
